@@ -30,7 +30,7 @@ def calculate_agregate_number_accident_mean(nypd_collisions_data: pd.DataFrame, 
 
 
 def clalculate_accident_per_street_per_borough(nypd_collisions_data: pd.DataFrame, max_street_list: int = 5,
-                                               max_borough_list: int = 3):
+                                               max_borough_list: int = 3) -> list:
     nypd_collisions_data["NUMBER OF PERSONS"] = nypd_collisions_data[f"NUMBER OF PERSONS INJURED"] + \
                                                 nypd_collisions_data[f"NUMBER OF PERSONS KILLED"]
     borough_list = calculate_agg_borough_max(nypd_collisions_data, max_borough_list)
