@@ -90,3 +90,16 @@ def calculate_agg_borough_max(nypd_collisions_data: pd.DataFrame) -> list:
     return agg_borough_max['BOROUGH'].tolist()
 
 print(calculate_agg_borough_max(df))
+
+#Średnia ilość wypadków z udziałem motocyklisty
+
+print('4.Średnia ilość wypadków z udziałem motocyklisty')
+
+def calculate_agregate_number_of_motorist_min(nypd_collisions_data: pd.DataFrame) ->int:
+    nypd_collisions_data["NUMBER OF MOTORIST"] = nypd_collisions_data["NUMBER OF MOTORIST INJURED"] + \
+                                                 nypd_collisions_data["NUMBER OF MOTORIST KILLED"]
+    agg_number_of_motorist_mean = nypd_collisions_data.agg({'NUMBER OF MOTORIST': 'mean'})
+    return agg_number_of_motorist_mean['NUMBER OF MOTORIST'].round(2)
+print(calculate_agregate_number_of_motorist_min(df))
+
+#
